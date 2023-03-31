@@ -50,7 +50,7 @@ style the design
     margin: auto;
 
 }
-.the-stand::before {
+.the-stand {
     content: "";
     position: absolute;
     width: var(--main-width);
@@ -77,4 +77,68 @@ style the design
     left: 136px;
     top: 15px;
     height: 45px;
+}
+.the-rope {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    position: absolute;
+    left: 103px;
+    top: 56px;
+    border: var(--main-width) dashed var(--main-color);
+}
+/*---------------------------------------
+style the man
+--------------------------------------*/
+.the-man .man-head {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: var(--main-width) solid var(--main-color);
+    position: absolute;
+    left: 113px;
+    top: 66px;
+}
+.the-man .man-body {
+    position: absolute;
+    background-color: var(--main-color);
+    width: var(--main-width);
+    height: 110px;
+    top: 112px;
+    left: 136px;
+}
+.the-man .man-hands::before,
+.the-man .man-hands::after
+{
+    content: "";
+    width: 50px;
+    position: absolute;
+    height: var(--main-width);
+    background-color: var(--main-color);
+    top: 150px;
+}
+.the-man .man-hands::before {
+    left: 92px;
+    transform: rotate(30deg);
+}
+.the-man .man-hands::after {
+    left: 135px;
+    transform: rotate(-30deg);
+}
+.the-man .man-legs::before,
+.the-man .man-legs::after {
+    content: "";
+    width: 50px;
+    position: absolute;
+    height: var(--main-width);
+    background-color: var(--main-color);
+    top: 230px;
+}
+.the-man .man-legs::after {
+    left: 134px;
+    transform: rotate(-150deg);
+}
+.the-man .man-legs::before {
+    left: 91px;
+    transform: rotate(150deg);
 }
