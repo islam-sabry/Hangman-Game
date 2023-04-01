@@ -29,13 +29,16 @@ style game info
     font-weight: 700;
 }
 .game-info .categories span {
-    color: #e91e63;
+    color: #d10;
+    text-transform: uppercase;
 }
 /*-------------------------------
 style the design
 -----------------------------*/
 .hang-design {
-    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #f8f8f8;
     padding: 20px;
     height: 324px;
@@ -141,4 +144,66 @@ style the man
 .the-man .man-legs::before {
     left: 91px;
     transform: rotate(150deg);
+}
+/*-----------------------------------
+style the letterts
+------------------------------------*/
+.all-letters {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+.all-letters .letter-container {
+    width: 55px;
+    height: 55px;
+    display: inline-block;
+    background-color: #009688;
+    color: white;
+    font-size: 24px;
+    margin-right: 10px;
+    line-height: 55px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+/*--------------------------------------------
+style letter guess
+------------------------------------------*/
+.letters-guess {
+    margin: 10px auto;
+    min-height: 104px;
+}
+.letters-guess span {
+    display: flex;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 60px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: #FDFDFD;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    transition: 0.3s;
+    border-radius: 8px;
+}
+
+.letters-guess  .has-space {
+    background: none;
+    border-bottom: none;
+    position: relative;
+    box-shadow: none;
+}
+
+.letters-guess .has-space::before {
+    content: "";
+    width: 20px;
+    height: var(--main-width);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
