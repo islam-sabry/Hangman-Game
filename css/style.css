@@ -224,6 +224,9 @@ style the letterts
     padding: 20px;
     text-align: center;
 }
+.all-letters.finished {
+    pointer-events: none;
+}
 .all-letters .letter-container {
     width: 55px;
     height: 55px;
@@ -294,4 +297,25 @@ style clicked letter
     background-color: #222;
     opacity: 0.4;
     pointer-events: none;
+}
+/*-----------------------------------------
+style the popup mess
+-------------------------------------------*/
+.popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    text-transform: capitalize;
+    border-radius: 15px;
+    position: fixed;
+    width: 500px;
+    height: 300px;
+    background-color: #d10;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: wheat;
+    text-align: center;
+    transition: 0.3s;
 }

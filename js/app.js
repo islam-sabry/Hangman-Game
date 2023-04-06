@@ -52,7 +52,7 @@ choosenWordLetters.forEach((wordLetter)=> {
 handel clicking on letters
 ------------------------------------------*/
 // set wrong attempts
-let wrongAttempts =0;
+let wrongAttempts = 0;
 let theDraw = document.querySelector(".hang-design");
 
 // get the guess span
@@ -77,16 +77,34 @@ document.addEventListener("click", (e)=> {
                     }
                 })
             }
-        })
-
+        });
         // check the wrong letter
         if (theStatus === false) {
             // increase the wrong attempt and add classname to the draw
             wrongAttempts ++;
             theDraw.classList.add(`wrong-${wrongAttempts}`);
+
+            // the audio section (fail)
+            document.querySelector("#fail").play();
+            if (wrongAttempts === 6) {
+                lettersContainer.classList.add("finished");
+                endGame();
+            }
+        } else {
+            // audio section (success)
+            document.querySelector("#success").play();
+
         }
     }
 });
+// create endgame func
+function endGame() {
+    let div = document.createElement("div");
+    let divTetxt = document.createTextNode(`Game Over The Word is : ${randomvalueName}`);
+    div.appendChild(divTetxt);
+    div.className = "popup";
+    document.body.appendChild(div)
+} 
 
 
 
