@@ -16,11 +16,11 @@ lettersArr.forEach((letter)=> {
 
 //create object for words
 let allWords = {
-    movies: ["Pulp Fiction","Titanic", "Star Wars", "The Godfather", "Dark Night", "Green Mile", "Lord of the Rings", "Seven"],
-    scientists: ["Nikola Tesla", "Albert Einstein", "Stephen Hawking", "Galileo Galilei", "Isaac Newton"],
-    tracks: ["React", "Php Laravel", "Node JS", "Angular", "Dot Net", "Java Spring", "python", "Graphic Designer"],
-    countries: ["Egypt", "Spain", "England", "Argentina", "Italy", "Germany"],
-    clubs: ["Liverpool", "Man City", "Arsenal", "Barcelona", "Real Madrid", "Milan", "Inter", "Porto"]
+    movies: ["pulp fiction","titanic", "star wars", "the godfather", "dark night", "green mile", "lord of the rings", "seven"],
+    scientists: ["nikola Tesla", "albert einstein", "stephen hawking", "galileo galilei", "isaac newton"],
+    tracks: ["react", "php laravel", "node js", "angular", "dot net", "java spring", "python", "graphic designer"],
+    countries: ["egypt", "spain", "england", "argentina", "italy", "germany"],
+    clubs: ["liverpool", "man city", "arsenal", "barcelona", "real madrid", "milan", "inter", "porto"]
 };
 // get random property value
 let allKeys = Object.keys(allWords);
@@ -46,7 +46,47 @@ choosenWordLetters.forEach((wordLetter)=> {
         span.className = "has-space";
     }
     letterGuessContainer.appendChild(span)
-})
+});
+
+/*-----------------------------------------
+handel clicking on letters
+------------------------------------------*/
+// set wrong attempts
+let wrongAttempts =0;
+let theDraw = document.querySelector(".hang-design");
+
+// get the guess span
+let guessSpan = document.querySelectorAll(".letters-guess span");
+// get the choosen word
+let choosenWord = Array.from(randomvalueName);
+document.addEventListener("click", (e)=> {
+    // set status
+    let theStatus =false;
+    if (e.target.className === "letter-container") {
+        // the choosen letter
+        e.target.classList.add("clicked");
+        let clickedLetter = e.target.innerHTML;
+        choosenWordLetters.forEach((letter, letterIndex)=> {
+            // check if the clicked letter equal any letter in the choosenWordLetters
+            if (clickedLetter === letter) {
+                theStatus = true;
+                // loop in all spans
+                guessSpan.forEach ((span, index)=> {
+                    if (letterIndex === index) {
+                        span.innerHTML = letter;
+                    }
+                })
+            }
+        })
+
+        // check the wrong letter
+        if (theStatus === false) {
+            // increase the wrong attempt and add classname to the draw
+            wrongAttempts ++;
+            theDraw.classList.add(`wrong-${wrongAttempts}`);
+        }
+    }
+});
 
 
 

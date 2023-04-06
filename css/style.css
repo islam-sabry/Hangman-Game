@@ -24,7 +24,7 @@ style game info
 }
 .game-info .categories {
     flex: 1;
-    text-align: right;
+    text-align: center;
     font-size: 24px;
     font-weight: 700;
 }
@@ -44,6 +44,7 @@ style the design
     height: 324px;
     border-radius: 10px;
     border: 1px solid var(--main-color);
+
 }
 .the-design {
     width: 80px;
@@ -51,6 +52,7 @@ style the design
     border-bottom: var(--main-width) solid var(--main-color);
     position: relative;
     margin: auto;
+    display: none;
 
 }
 .the-stand {
@@ -61,6 +63,7 @@ style the design
     height: 100%;
     left: 50%;
     transform: translate(-50%);
+    display: none;
 
 }
 .the-hang::before {
@@ -89,6 +92,7 @@ style the design
     left: 103px;
     top: 56px;
     border: var(--main-width) dashed var(--main-color);
+    display: none;
 }
 /*---------------------------------------
 style the man
@@ -101,6 +105,36 @@ style the man
     position: absolute;
     left: 113px;
     top: 66px;
+    display: none;
+}
+.the-man .man-head .eyes::after {
+    content: "";
+    position: absolute;
+    height: 6px;
+    width: 6px;
+    background-color: black;
+    top: 36%;
+    left: 26%;
+    border-radius: 50%;
+}
+.the-man .man-head .eyes::before {
+    content: "";
+    position: absolute;
+    height: 6px;
+    width: 6px;
+    background-color: black;
+    top: 36%;
+    right: 26%;
+    border-radius: 50%;
+}
+.the-man .man-head .mouse {
+    background-color: black;
+    height: 3px;
+    width: 10px;
+    position: absolute;
+    top: 73%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .the-man .man-body {
     position: absolute;
@@ -109,6 +143,10 @@ style the man
     height: 110px;
     top: 112px;
     left: 136px;
+    display: none;
+}
+.the-man .man-hands {
+    display: none;
 }
 .the-man .man-hands::before,
 .the-man .man-hands::after
@@ -128,6 +166,9 @@ style the man
     left: 135px;
     transform: rotate(-30deg);
 }
+.the-man .man-legs {
+    display: none;
+}
 .the-man .man-legs::before,
 .the-man .man-legs::after {
     content: "";
@@ -144,6 +185,36 @@ style the man
 .the-man .man-legs::before {
     left: 91px;
     transform: rotate(150deg);
+}
+/*---------------------------------
+appear the draw 
+-----------------------------------*/
+.hang-design.wrong-1 .the-design {
+    display: block;
+}
+.hang-design.wrong-1 .the-stand {
+    display: block;
+}
+/* .hang-design.wrong-2 .the-hang {
+    display: block;
+} */
+.hang-design.wrong-2 .the-rope {
+    display: block;
+}
+/* .hang-design.wrong-3 .the-design {
+    display: block;
+} */
+.hang-design.wrong-3 .man-head {
+    display: block;
+}
+.hang-design.wrong-4 .man-body {
+    display: block;
+}
+.hang-design.wrong-5 .man-hands {
+    display: block;
+}
+.hang-design.wrong-6 .man-legs {
+    display: block;
 }
 /*-----------------------------------
 style the letterts
@@ -167,7 +238,8 @@ style the letterts
     text-transform: uppercase;
     margin-bottom: 10px;
     border-radius: 8px;
-}
+};
+
 /*--------------------------------------------
 style letter guess
 ------------------------------------------*/
@@ -177,6 +249,8 @@ style letter guess
 }
 .letters-guess span {
     display: flex;
+    justify-content: center;
+    align-items: center;
     width: 60px;
     height: 60px;
     font-size: 24px;
@@ -206,4 +280,18 @@ style letter guess
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+};
+/*-----------------------------------
+style clicked letter
+---------------------------------------*/
+.all-letters .letter-container {
+    background-color: #222;
+    opacity: 0.4;
+    pointer-events: none;
+    
+}
+.all-letters .letter-container.clicked {
+    background-color: #222;
+    opacity: 0.4;
+    pointer-events: none;
 }
