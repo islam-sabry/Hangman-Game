@@ -30,7 +30,7 @@ let randomPropValue = allWords[randomPropName];
 let randomValueNumber = Math.floor(Math.random() * randomPropValue.length);
 // the value
 let randomvalueName = randomPropValue[randomValueNumber];
-
+console.log(randomvalueName);
 // set categories info
 document.querySelector(".categories span").innerHTML = randomPropName;
 
@@ -48,11 +48,13 @@ choosenWordLetters.forEach((wordLetter)=> {
     letterGuessContainer.appendChild(span)
 });
 
+
 /*-----------------------------------------
 handel clicking on letters
 ------------------------------------------*/
 // set wrong attempts
 let wrongAttempts = 0;
+let winCount = 0;
 let theDraw = document.querySelector(".hang-design");
 
 // get the guess span
@@ -74,7 +76,21 @@ document.addEventListener("click", (e)=> {
                 guessSpan.forEach ((span, index)=> {
                     if (letterIndex === index) {
                         span.innerHTML = letter;
-                    }
+                        if (choosenWordLetters.includes(" ")) {
+                            winCount++;
+                            if (winCount === guessSpan.length -1 ) {
+                                Congradulations();
+                            }
+                        }else {
+                            winCount++;
+                            if (winCount === guessSpan.length) {
+                                Congradulations();
+                            }
+                        }
+                        console.log(winCount);
+                        console.log(guessSpan.length)
+                    };
+
                 })
             }
         });
@@ -83,7 +99,6 @@ document.addEventListener("click", (e)=> {
             // increase the wrong attempt and add classname to the draw
             wrongAttempts ++;
             theDraw.classList.add(`wrong-${wrongAttempts}`);
-
             // the audio section (fail)
             document.querySelector("#fail").play();
             if (wrongAttempts === 6) {
@@ -93,18 +108,26 @@ document.addEventListener("click", (e)=> {
         } else {
             // audio section (success)
             document.querySelector("#success").play();
-
         }
     }
 });
 // create endgame func
 function endGame() {
     let div = document.createElement("div");
-    let divTetxt = document.createTextNode(`Game Over The Word is : ${randomvalueName}`);
+    let divTetxt = document.createTextNode(`Game Over The Word is  : ${randomvalueName}`);
     div.appendChild(divTetxt);
     div.className = "popup";
     document.body.appendChild(div)
 } 
+// create congradulations func
+function Congradulations() {
+    let div = document.createElement("div");
+    let divTetxt = document.createTextNode(`Congradulations , You Win`);
+    div.appendChild(divTetxt);
+    div.className = "popup-win";
+    document.body.appendChild(div)
+} 
+
 
 
 
